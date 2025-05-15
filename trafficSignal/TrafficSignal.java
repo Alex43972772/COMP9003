@@ -1,3 +1,4 @@
+package trafficsignal;
 public class TrafficSignal {
     private String signalID;
     private String[] currentState;
