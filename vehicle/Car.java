@@ -1,4 +1,5 @@
-public class Car extends Vehicle {
+package vehicle;
+public class Car extends vehicle {
     private static final double DEFAULT_VELOCITY = 100.0; // meters per 5 seconds
     
     public Car(String vehicleID, int moveTimeSeconds) {

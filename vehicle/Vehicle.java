@@ -1,13 +1,14 @@
+package Vehicle;
 import java.util.List;
 
-public abstract class Vehicle {
+public abstract class vehicle {
     private String vehicleID;
     private double velocity;
     private int[] lane;
     private double currentPosition;
     private int moveTimeSeconds;
 
-    public Vehicle(String vehicleID, double initialVelocity, int moveTimeSeconds) {
+    public vehicle(String vehicleID, double initialVelocity, int moveTimeSeconds) {
         this.vehicleID = vehicleID;
         this.velocity = initialVelocity;
         this.lane = new int[]{1}; // Initially in lane 1
@@ -45,14 +46,14 @@ public abstract class Vehicle {
     }
     
     // Method to show the current traffic state
-    public static void showTrafficState(List<Vehicle> vehicles) {
+    public static void showTrafficState(List<vehicle> vehicles) {
         System.out.println("\n----- Current Traffic State -----");
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles in the simulation.");
             return;
         }
         
-        for (Vehicle vehicle : vehicles) {
+        for (vehicle vehicle : vehicles) {
             System.out.println(vehicle);
         }
     }

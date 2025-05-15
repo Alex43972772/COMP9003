@@ -1,3 +1,4 @@
+package vehicle;
 public class Bus extends Vehicle {
     private static final double DEFAULT_VELOCITY = 80.0; // meters per 5 seconds
     
