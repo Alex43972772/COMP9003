@@ -1,4 +1,6 @@
-package intersectionnetwork;
+package intersectionNetwork;
+
+import simulationException.SimulationException;
 import java.util.ArrayList;
 import java.util.List;
 
