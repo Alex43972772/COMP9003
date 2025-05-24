@@ -2,34 +2,18 @@ package vehicle;
 import java.util.List;
 import simulationexception.SimulationException;
 /*
- * Vehicle Class Hierarchy:
+ * My understanding of the requirement of Vehivle class, and the implementation reasoning:
  * 
- * Create an abstract Vehicle class with attributes such as vehicleID, velocity, lane and currentPosition.
- * 
- * Include methods to calculate velocity (i.e., velocity()) and lane changes (i.e., lane(); assume the vehicles are driving on a three-lane road; initially choose the first
- * lane for each vehicle and change it to lanes other than the current lane for each call to
- * move() method). The variable lane is an int array. Note that once a vehicle reaches
-lane 3, it returns to lane 1 on the next call to move().
-o Call the move() method five times; the move() method will change the current status
-of a vehicle, such as velocity (except the vehicleID) and lane. Each call to move()
-method is considered 5 seconds; the move() method will call the
-velocity()method to calculate the vehicle’s velocity. Assuming the current speed
-is 100 at the start, its velocity would be v = 100 meters / 5 seconds = 20 meters per
-second. The currentPosition is calculated at the end of the call 5 to move()
-method, which is velocity*5 (since the method is called five times).
-▪ The default value is 5 seconds; adjust it to any value from the Main class
-(optional, no weightage); this will help you test your method once you see the
-change in velocity.
-o Derive at least three subclasses (e.g., Car, Bus, Truck) from the Vehicle class that
-implement specific behaviours (overriding methods such as move()). The Car, Bus,
-and Truck move at 100, 80, and 90 speeds.
-o Implement another method (showTrafficState()) to show the current status of
-all vehicles, including velocity, lane, and position. Call this method two times: once
-after the second call to move() method and once at the end of the simulation. Show
-the currentPosition of each vehicle on the second call.
- * o Provide error handling for invalid lane transitions, i.e.; a vehicle moves to lane 4.
- * o Optional: Implement another method to calculate acceleration or deceleration. (no
- * weightage)
+ * 1. The vehicle has a initial velocity when it is initialized.
+ * 2. The vehicle can change its velocity by the velocityChange parameter in the move method.
+ * 3. Every move() call means the vehicle moves at the changed velocity for 5 seconds.
+ * 4. Hence after every call to move(), the currentposition changes by the new velocity * 5.
+ * 5. the vehicle changs its lane (1 -> 2, 2 -> 3, 3 -> 1) by calling lane();
+ * 6. The vehicle must change its lane for once everytime a move() is called.
+ * 7. The vehicle can't have a global variable to store all vehicles that were initialized because the attributes are given.
+ * 8. That is why I used a list of vehicles in the main class to store all vehicles.
+ * 9. I could have used a static variable to store the list of vehicles in the Vehicle class, but I didn't because the attributes are given.
+ * 10. The error message to catch lane change exception will never be thrown because the lane will never reach 4. But I added it anyway.
  */
 public abstract class Vehicle {
     private int vehicleID;
