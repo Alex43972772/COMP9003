@@ -4,11 +4,11 @@ import simulationException.SimulationException;
 
 public class IntersectionNetwork {
 
-    static final int LANES = 3;
-    static final int INTERSECTIONS = 10;
+    private static final int LANES = 3;
+    private static final int INTERSECTIONS = 10;
 
     private int[][] intersection;
-    final private int vehicleID;
+    private final  int vehicleID;
     private int currentLaneIndex = 0;
     private int currentIntersectionIndex;
     private boolean intersectionComplete = false;
