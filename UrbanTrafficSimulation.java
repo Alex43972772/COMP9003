@@ -27,13 +27,12 @@
  * 
  */
 
+import intersectionNetwork.IntersectionNetwork;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import vehicle.*;
-import trafficSignal.TrafficSignal;
-import intersectionNetwork.IntersectionNetwork;
 import simulationException.SimulationException;
+import trafficSignal.TrafficSignal;
+import vehicle.*;
 
 public class UrbanTrafficSimulation {
 
@@ -53,7 +52,7 @@ public class UrbanTrafficSimulation {
         System.out.println("\nThis submission belongs to:\n\n" +
                 "\033[4mGroup 23\033[0m\n\n" +
                 "530049902, Michael Thomas\n" +
-                "<SID>, Malavika Nandagopan\n" +
+                "550508436, Malavika Nandagopan\n" +
                 "<SID>, Alex\n");
 
         // Program title

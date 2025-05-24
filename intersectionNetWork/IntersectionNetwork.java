@@ -63,11 +63,11 @@ public class IntersectionNetwork {
 
     public void showIntersectionStatus() {
         // System.out.println("\n=== Final Intersection Matrix (V = current position) ===");
-
+        int displayIndex = currentIntersectionIndex - 1;
         for(int laneIndex = 0; laneIndex < LANES; laneIndex++) {
             System.out.print("Lane " + (laneIndex + 1) + ": ");
             for(int intersectionIndex = 0; intersectionIndex < INTERSECTIONS; intersectionIndex++) {
-                if(laneIndex == currentLaneIndex && intersectionIndex == currentIntersectionIndex) {
+                if(laneIndex == currentLaneIndex && intersectionIndex == displayIndex) {
                     System.out.print("V ");
                 }
                 else {
