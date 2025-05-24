@@ -321,7 +321,10 @@ public class UrbanTrafficSimulation {
                     }
 
                     if (!intersectionNetworks.isEmpty()) {
-                        // IntersectionNetwork.showIntersectionStatus();
+                        System.out.println("\n\033[1;4mIntersection states:\033[0m\n");
+                        for (IntersectionNetwork network : intersectionNetworks) {
+                            network.showIntersectionStatus();
+                        }
                     } else {
                         System.out.println("No Intersection Networks to display.");
                     }
@@ -454,8 +457,8 @@ public class UrbanTrafficSimulation {
             trafficSignals.add(signal);
         }
 
-        for (int i = 0; i < num; i++) {
-            intersectionNetworks.add(new IntersectionNetwork("1"));
+        for (Vehicle vehicle : vehicles) {
+            intersectionNetworks.add(new IntersectionNetwork(vehicle.getVehicleID()));
         }
 
     }
@@ -552,10 +555,15 @@ public class UrbanTrafficSimulation {
                     }
                 }
 
-                // // call the intersectionNetwork moveThrough method
-                // for (IntersectionNetwork intersectionNetwork : intersectionNetworks) {
-                // intersectionNetwork.moveThrough();
-                // }
+                // call the intersectionNetwork moveThrough method
+                for (IntersectionNetwork intersectionNetwork : intersectionNetworks) {
+                    for (Vehicle vehicle : vehicles) {
+                        if (vehicle.getVehicleID() == intersectionNetwork.getVehicleID()) {
+                            intersectionNetwork.moveThrough(vehicle.getLane());
+                        }
+                    }
+                    
+                }
 
                 // show the traffic states on the second call
                 if (i == stepDuration) {
@@ -572,10 +580,10 @@ public class UrbanTrafficSimulation {
                     }
                     System.out.println();
 
-                    System.out.println("\033[1;4mIntersection states:\033[0m\n");
-                    // for (IntersectionNetwork network : intersectionNetworks) {
-                    // network.showIntersectionStatus();
-                    // }
+                    System.out.println("\033[1;4mIntersection states (V = current position):\033[0m\n");
+                    for (IntersectionNetwork network : intersectionNetworks) {
+                    network.showIntersectionStatus();
+                    }
                     System.out.println();
                 }
 
@@ -603,10 +611,10 @@ public class UrbanTrafficSimulation {
                 signal.showTrafficSignal();
             }
 
-            System.out.println("\n\033[1;4mIntersection status at completion:\033[0m\n");
-            // for (IntersectionNetwork network : intersectionNetworks) {
-            // network.showIntersectionStatus();
-            // }
+            System.out.println("\n\033[1;4mIntersection status at completion (V = current position):\033[0m\n");
+            for (IntersectionNetwork network : intersectionNetworks) {
+            network.showIntersectionStatus();
+            }
 
         }
     }
